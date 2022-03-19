@@ -1,6 +1,47 @@
+:root {
+  --primary-color: #005aa7;
+  --light-color: #0081f0;
+  --dark-color: #001f3a;
+  --secondary-color: #00a7a0;
+}
+
 body {
-  background: #005aa7;
+  background: var(--dark-color);
   font-family: 'Poppins', sans-serif;
+  padding-top: 85px;
+}
+
+header {
+  z-index: 99999;
+  background: var(--dark-color);
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand,
+.navbar-brand:hover {
+  color: var(--secondary-color);
+}
+
+.nav-link {
+  padding: 0.25rem 0;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  border-bottom: 0.25rem solid transparent;
+  margin-left: 1.25rem;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: rgba(255, 255, 255, 0.25);
+  border-bottom-color: rgba(255, 255, 255, 0.25);
+}
+
+.nav-link.active {
+  color: var(--secondary-color);
+  border-bottom-color: var(--secondary-color);
 }
 
 .main-container {
