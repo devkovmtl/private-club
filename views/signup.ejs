@@ -13,6 +13,7 @@
             id="firstName"
             name="firstName"
             placeholder="First Name"
+            value="<%=user && user.firstName ? user.firstName: ''%>"
           />
           <label for="firstName">First Name</label>
         </div>
@@ -23,6 +24,7 @@
             id="lastName"
             name="lastName"
             placeholder="Last Name"
+            value="<%=user && user.lastName ? user.lastName: ''%>"
           />
           <label for="lastName">Last Name</label>
         </div>
@@ -33,6 +35,7 @@
             id="email"
             name="email"
             placeholder="Email address"
+            value="<%=user && user.email ? user.email: ''%>"
           />
           <label for="email">Email address</label>
         </div>
@@ -46,10 +49,23 @@
           />
           <label for="password">Password</label>
         </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            id="cPassword"
+            name="cPassword"
+            placeholder="Confirm Password"
+          />
+          <label for="cPassword">Confirm Password</label>
+        </div>
         <button class="w-100 btn btn-lg btn-submit-form" type="submit">
           <%= title %>
         </button>
       </form>
+      <% if(errors) {%> <% for(let error of errors) { %>
+      <p class="text-danger" role="alert"><%= error.msg %></p>
+      <% } %> <% } %>
     </main>
     <%- include('templates/footer'); -%>
   </body>
