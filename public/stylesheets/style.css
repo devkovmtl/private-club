@@ -19,6 +19,13 @@ header {
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
+footer {
+  z-index: 99999;
+  background: var(--dark-color);
+  border-top: 1px solid var(--secondary-color);
+  height: 42px;
+}
+
 .navbar-brand,
 .navbar-brand:hover {
   color: var(--secondary-color);
