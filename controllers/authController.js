@@ -1,5 +1,5 @@
 exports.signupGet = (req, res, next) => {
-  res.send('Signup GET');
+  res.render('signup', { title: 'Sign Up' });
 };
 
 exports.signupPost = (req, res, next) => {

@@ -3,6 +3,7 @@
   --light-color: #0081f0;
   --dark-color: #001f3a;
   --secondary-color: #00a7a0;
+  --secondary-light-color: #00cbc3;
 }
 
 body {
@@ -53,4 +54,25 @@ footer {
 
 .main-container {
   max-width: 42em;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.auth-form input {
+  margin: 1rem 0;
+}
+
+.btn-submit-form {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+.btn-submit-form:hover {
+  background-color: var(--secondary-light-color);
+  color: #fff;
 }
