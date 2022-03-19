@@ -7,7 +7,7 @@ exports.signupPost = (req, res, next) => {
 };
 
 exports.signinGet = (req, res, next) => {
-  res.send('SignIn GET');
+  res.render('signin', { title: 'Sign In' });
 };
 
 exports.signinPost = (req, res, next) => {

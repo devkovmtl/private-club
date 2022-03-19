@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('templates/head'); -%>
+  <body class="d-flex h-100 text-center text-white">
+    <%- include('templates/header', {pageName: 'signin'}); -%>
+    <main class="w-100">
+      <form action="/auth/signin" method="POST" class="auth-form text-dark">
+        <h1 class="h3 mb-3 fw-normal text-white"><%= title %></h1>
+        <div class="form-floating">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Email address"
+          />
+          <label for="email">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Password"
+          />
+          <label for="password">Password</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-submit-form" type="submit">
+          <%= title %>
+        </button>
+      </form>
+    </main>
+    <%- include('templates/footer'); -%>
+  </body>
+</html>
