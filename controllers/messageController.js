@@ -1,5 +1,5 @@
 exports.messageList = (req, res, next) => {
-  res.send('Get - Message List');
+  res.render('index', { title: 'Home' });
 };
 
 exports.messageCreateGet = (req, res, next) => {
