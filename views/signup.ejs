@@ -63,8 +63,8 @@
           <%= title %>
         </button>
       </form>
-      <% if(errors) {%> <% for(let error of errors) { %>
-      <p class="text-danger" role="alert"><%= error.msg %></p>
+      <% if(messages) {%> <% for(let message of messages) { %>
+      <p class="text-danger" role="alert"><%= messages.error %></p>
       <% } %> <% } %>
     </main>
     <%- include('templates/footer'); -%>
