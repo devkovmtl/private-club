@@ -86,7 +86,11 @@ exports.signupPost = [
 ];
 
 exports.signinGet = (req, res, next) => {
-  res.render('signin', { title: 'Sign In', user: null, errors: null });
+  res.render('signin', {
+    title: 'Sign In',
+    user: null,
+    errors: req.flash('error'),
+  });
 };
 
 exports.signinPost = passport.authenticate('local', {
@@ -96,5 +100,6 @@ exports.signinPost = passport.authenticate('local', {
 });
 
 exports.logout = (req, res, next) => {
-  res.send('LOGOUT');
+  req.logout();
+  res.redirect('/');
 };

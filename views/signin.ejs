@@ -31,6 +31,9 @@
           <%= title %>
         </button>
       </form>
+      <% if(errors) { %> <%for (let error of errors) {%>
+      <p class="text-danger" role="alert"><%= error %></p>
+      <% } %> <% } %>
     </main>
     <%- include('templates/footer'); -%>
   </body>

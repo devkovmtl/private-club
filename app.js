@@ -5,15 +5,26 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
+const session = require('express-session');
+const passport = require('passport');
+const flash = require('connect-flash');
 
+// passport (serialize, deserialize)
+require('./auth');
+// routes
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/auth');
 const usersRouter = require('./routes/users');
 const messagesRouter = require('./routes/messages');
 
 // environment variable
-const { MONGO_USERNAME, MONGO_PASSWORD, MONGO_HOST, MONGO_DATABASE } =
-  process.env;
+const {
+  MONGO_USERNAME,
+  MONGO_PASSWORD,
+  MONGO_HOST,
+  MONGO_DATABASE,
+  SESSION_SECRET,
+} = process.env;
 
 // Setup mongoose db
 const MONGO_URL = `mongodb+srv://${MONGO_USERNAME}:${MONGO_PASSWORD}@${MONGO_HOST}/${MONGO_DATABASE}?retryWrites=true&w=majority`;
@@ -24,6 +35,27 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const app = express();
+
+// setup express session
+app.use(
+  session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(flash());
+
+// initialize passport
+app.use(passport.initialize());
+// passport use express session
+app.use(passport.session());
+
+// set user to use in our partials
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
