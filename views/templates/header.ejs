@@ -6,6 +6,7 @@
       <a href="/" class="nav-link <%= pageName === 'home' && 'active' %>"
         >Home</a
       >
+      <% if(!user) { %>
       <a
         href="/auth/signin"
         class="nav-link <%= pageName === 'signin' && 'active' %>"
@@ -16,6 +17,13 @@
         class="nav-link <%= pageName === 'signup' && 'active' %>"
         >Sign Up</a
       >
+      <% } else { %>
+      <a
+        href="/auth/logout"
+        class="nav-link <%= pageName === 'logout' && 'active' %>"
+        >Logout</a
+      >
+      <% } %>
     </nav>
   </div>
 </header>
