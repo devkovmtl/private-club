@@ -1,0 +1,8 @@
+body {
+  background: #005aa7;
+  font-family: 'Poppins', sans-serif;
+}
+
+.main-container {
+  max-width: 42em;
+}
