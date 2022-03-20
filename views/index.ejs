@@ -3,7 +3,13 @@
   <%- include('templates/head'); -%>
   <body class="d-flex h-100 text-center text-white">
     <%- include('templates/header', {pageName: 'home'}); -%>
-    <main></main>
+    <main>
+      <% if (user) { %>
+      <p>Enter a message</p>
+      <% } else { %>
+      <p>Please Login to be able to enter a message</p>
+      <% } %>
+    </main>
     <%- include('templates/footer'); -%>
   </body>
 </html>
