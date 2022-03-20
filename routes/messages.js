@@ -6,7 +6,6 @@ const messageController = require('../controllers/messageController');
 router.get('/', messageController.messageList);
 
 // CREATE A MESSAGE
-router.get('/create', messageController.messageCreateGet);
 router.post('/create', messageController.messageCreatePost);
 
 // DELETE A MESSAGE

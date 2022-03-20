@@ -16,10 +16,12 @@
           <div class="input-group">
             <input
               type="text"
-              name="test"
+              name="text"
               id="text"
               placeholder="Enter your message"
               class="form-control"
+              required
+              value="<%=message && message.text ? message.text : '' %>"
             />
             <input type="hidden" name="author" value="<%=user.id%>" />
             <button type="submit" class="btn btn-send btn-submit-form">
