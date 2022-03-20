@@ -41,6 +41,9 @@ app.use(
     secret: SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 24, // Equals 1 day
+    },
   })
 );
 app.use(flash());
