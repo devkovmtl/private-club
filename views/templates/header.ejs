@@ -19,6 +19,11 @@
       >
       <% } else { %>
       <a
+        href="/auth/admin"
+        class="nav-link <%= pageName === 'admin' && 'active' %>"
+        >Admin</a
+      >
+      <a
         href="/auth/logout"
         class="nav-link <%= pageName === 'logout' && 'active' %>"
         >Logout</a
@@ -89,6 +94,11 @@
           >Sign Up</a
         >
         <% } else { %>
+        <a
+          href="/auth/admin"
+          class="nav-link mt-4 <%= pageName === 'admin' && 'active' %>"
+          >Admin</a
+        >
         <a
           href="/auth/logout"
           class="nav-link mt-4 <%= pageName === 'logout' && 'active' %>"

@@ -14,7 +14,6 @@ require('./auth');
 // routes
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/auth');
-const usersRouter = require('./routes/users');
 const messagesRouter = require('./routes/messages');
 
 // environment variable
@@ -70,7 +69,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/auth', authenticationRouter);
 app.use('/messages', messagesRouter);
-app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

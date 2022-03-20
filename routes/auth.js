@@ -13,4 +13,8 @@ router.post('/signin', authController.signinPost);
 /* LOGOUT page */
 router.get('/logout', authController.logout);
 
+/* ADMIN page*/
+router.get('/admin', authController.adminGet);
+router.post('/admin', authController.adminPost);
+
 module.exports = router;

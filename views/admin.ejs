@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('templates/head'); -%>
+  <body class="d-flex h-100 text-center text-white">
+    <%- include('templates/header', {pageName: 'admin'}); -%>
+    <main class="w-100">
+      <%if (user && !user.isAdmin) { %>
+      <form action="/auth/admin" method="POST" class="auth-form text-dark">
+        <p class="mb-3 fw-normal text-white">
+          Send a request to become an admin.
+        </p>
+        <button class="w-100 btn btn-lg btn-submit-form" type="submit">
+          Send
+        </button>
+      </form>
+      <% } else { %>
+      <p>You are an admin</p>
+      <% } %> <% if(errors) { %> <%for (let error of errors) {%>
+      <p class="text-danger" role="alert"><%= error %></p>
+      <% } %> <% } %>
+    </main>
+    <%- include('templates/footer'); -%>
+  </body>
+</html>

@@ -2,6 +2,7 @@ const { body, validationResult, check } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const User = require('../models/user');
+const Message = require('../models/message');
 const { createUsername } = require('../utils/createUsername');
 
 exports.signupGet = (req, res, next) => {
@@ -102,4 +103,33 @@ exports.signinPost = passport.authenticate('local', {
 exports.logout = (req, res, next) => {
   req.logout();
   res.redirect('/');
+};
+
+exports.adminGet = (req, res, next) => {
+  res.render('admin', { title: 'Admin', errors: null });
+};
+
+exports.adminPost = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user.id);
+    user.isAdmin = true;
+    await user.save();
+    const messages = await Message.find({}, '-__v')
+      .populate(
+        'author',
+        '-password -__v -firstName -lastName -email -isMember -messages -createdAt -updatedAt'
+      )
+      .sort({ createdAt: -1 })
+      .exec();
+
+    res.render('index', {
+      title: 'Home',
+      title: 'Home',
+      messages,
+      message: null,
+      errors: null,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
