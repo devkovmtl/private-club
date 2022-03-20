@@ -24,7 +24,7 @@ footer {
   z-index: 99999;
   background: var(--dark-color);
   border-top: 1px solid var(--secondary-color);
-  height: 42px;
+  height: 50px;
 }
 
 .navbar-brand,
@@ -102,4 +102,17 @@ footer {
 .btn-submit-form:hover {
   background-color: var(--secondary-light-color);
   color: #fff;
+}
+
+.message-list-container {
+  padding-top: 24px;
+  padding-bottom: 80px;
+}
+
+.message-form-container {
+  position: fixed;
+  left: 0;
+  bottom: calc(0% + 50px);
+  background-color: var(--dark-color);
+  width: 100%;
 }
