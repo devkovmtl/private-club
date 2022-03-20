@@ -65,10 +65,26 @@ exports.messageCreatePost = [
   },
 ];
 
-exports.messageDeleteGet = (req, res, next) => {
-  res.send('Get - Message Delete');
-};
+exports.messageDeletePost = async (req, res, next) => {
+  const messageId = req.params.id;
 
-exports.messageDeletePost = (req, res, next) => {
-  res.send('Post - Message Delete');
+  try {
+    await Message.findByIdAndRemove(messageId);
+    const messages = await Message.find({}, '-__v')
+      .populate(
+        'author',
+        '-password -__v -firstName -lastName -email -isMember -messages -createdAt -updatedAt'
+      )
+      .sort({ createdAt: -1 })
+      .exec();
+
+    res.render('index', {
+      title: 'Home',
+      messages,
+      message: null,
+      errors: null,
+    });
+  } catch (error) {
+    next(error);
+  }
 };

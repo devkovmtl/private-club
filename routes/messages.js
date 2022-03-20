@@ -9,7 +9,6 @@ router.get('/', messageController.messageList);
 router.post('/create', messageController.messageCreatePost);
 
 // DELETE A MESSAGE
-router.get('/:id/delete', messageController.messageDeleteGet);
-router.get('/:id/delete', messageController.messageDeletePost);
+router.post('/:id/delete', messageController.messageDeletePost);
 
 module.exports = router;
