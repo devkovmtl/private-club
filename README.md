@@ -17,3 +17,4 @@ Need time to load for the first time.
 - [PassportJS](https://www.passportjs.org/)
 - [bcryptjs](https://github.com/dcodeIO/bcrypt.js#readme)
 - [luxon](https://moment.github.io/luxon/#/?id=luxon)
+- [dotenv](https://www.npmjs.com/package/dotenv)

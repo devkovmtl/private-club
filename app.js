@@ -8,6 +8,8 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
+const helmet = require('helmet');
+const compression = require('compression');
 
 // passport (serialize, deserialize)
 require('./auth');
@@ -34,6 +36,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 const app = express();
+app.use(helmet());
 
 // setup express session
 app.use(
@@ -67,6 +70,9 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(compression());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
